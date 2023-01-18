@@ -10,11 +10,12 @@ import HomePageText from "@/assets/HomePageText.png";
 import HomePageGraphic from "@/assets/HomePageGraphic.png";
 //Motion
 import { motion } from "framer-motion";
-type Props = {
-  setSelectedPage: (value: SelectedPage) => void;
-};
+//Redux
+import { useDispatch } from "react-redux";
+import {setSelectedPage } from "@/features/selectedPageSlice";
 
-function Home({ setSelectedPage }: Props) {
+function Home() {
+  const dispatch = useDispatch();
   const isAboveMediumScreens = useMediaQuery("(min-width: 1080px");
   return (
     <section
@@ -23,7 +24,7 @@ function Home({ setSelectedPage }: Props) {
     >
       {/* IMAGE AND MAIN HEADER */}
       <motion.div
-        onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
+        onViewportEnter={() => dispatch(setSelectedPage(SelectedPage.Home))}
         className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
       >
         {/* MAIN HEADER */}
@@ -65,12 +66,12 @@ function Home({ setSelectedPage }: Props) {
             }}
             className="mt-8 flex items-center gap-8"
           >
-            <ActionButton setSelectedPage={setSelectedPage}>
+            <ActionButton>
               Join Now
             </ActionButton>
             <AnchorLink
               className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
-              onClick={() => setSelectedPage(SelectedPage.ContactUs)}
+              onClick={() => dispatch(setSelectedPage(SelectedPage.ContactUs))}
               href={`#${SelectedPage.ContactUs}`}
             >
               Learn More
