@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 //Utils
 import Logo from "@/assets/Logo.png";
 //Components
@@ -56,7 +56,7 @@ function Navbar() {
               <nav className={`${flexBetween} gap-8 text-sm`}>
                 <Link page="Home" />
                 <Link page="Benefits" />
-                <Link page="Our Careers" />
+                <Link page="Our Classes" />
                 <Link page="Contact Us" />
               </nav>
               <div className={`${flexBetween} gap-8`}>
