@@ -9,7 +9,7 @@ import Form from "./Form";
 function Contact() {
   const dispatch = useDispatch();
   return (
-    <section id={SelectedPage.ContactUs} className="pb-22 mx-auto w-5/6 pt-32">
+    <section id={SelectedPage.ContactUs} className="mx-auto w-5/6 pt-24 pb-32">
       <motion.div
         onViewportEnter={() =>
           dispatch(setSelectedPage(SelectedPage.ContactUs))
