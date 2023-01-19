@@ -18,7 +18,7 @@ function Navbar() {
   const dispatch = useDispatch();
 
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
@@ -39,7 +39,7 @@ function Navbar() {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   //Media Query ;
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-  //Header background style while scrolling 
+  //Header background style while scrolling
   const headerBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
   return (
     <header
