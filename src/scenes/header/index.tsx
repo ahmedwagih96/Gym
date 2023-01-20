@@ -42,44 +42,45 @@ function Navbar() {
   //Header background style while scrolling
   const headerBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
   return (
-    <header
-      className={`${flexBetween} ${headerBackground} fixed top-0 z-30 w-full py-6`}
-    >
-      <div className={`${flexBetween} mx-auto w-5/6`}>
-        <div className={`${flexBetween} w-full gap-16`}>
-          {/* LEFT SIDE */}
-          <img src={Logo} alt="Logo" />
+    <>
+      <header
+        className={`${flexBetween} ${headerBackground} fixed top-0 z-30 w-full py-6`}
+      >
+        <div className={`${flexBetween} mx-auto w-5/6`}>
+          <div className={`${flexBetween} w-full gap-16`}>
+            {/* LEFT SIDE */}
+            <img src={Logo} alt="Logo" />
 
-          {/* RIGHT SIDE */}
-          {isAboveMediumScreens ? (
-            <div className={`${flexBetween} w-full`}>
-              <nav className={`${flexBetween} gap-8 text-sm`}>
-                <Link page="Home" />
-                <Link page="Benefits" />
-                <Link page="Our Classes" />
-                <Link page="Contact Us" />
-              </nav>
-              <div className={`${flexBetween} gap-8`}>
-                <ActionButton>Sign In</ActionButton>
-                <p>Become a Member</p>
+            {/* RIGHT SIDE */}
+            {isAboveMediumScreens ? (
+              <div className={`${flexBetween} w-full`}>
+                <nav className={`${flexBetween} gap-8 text-sm`}>
+                  <Link page="Home" />
+                  <Link page="Benefits" />
+                  <Link page="Our Classes" />
+                  <Link page="Contact Us" />
+                </nav>
+                <div className={`${flexBetween} gap-8`}>
+                  <ActionButton>Sign In</ActionButton>
+                  <p>Become a Member</p>
+                </div>
               </div>
-            </div>
-          ) : (
-            <button
-              className="rounded-full bg-secondary-500 p-2"
-              onClick={() => setIsMenuToggled(!isMenuToggled)}
-            >
-              <Bars3Icon className="h-6 w-6 text-white" />
-            </button>
-          )}
+            ) : (
+              <button
+                className="rounded-full bg-secondary-500 p-2"
+                onClick={() => setIsMenuToggled(!isMenuToggled)}
+              >
+                <Bars3Icon className="h-6 w-6 text-white" />
+              </button>
+            )}
+          </div>
         </div>
-      </div>
-
+      </header>
       {/* MOBILE MENU MODAL */}
       {!isAboveMediumScreens && isMenuToggled && (
         <MobileModal setIsMenuToggled={setIsMenuToggled} />
       )}
-    </header>
+    </>
   );
 }
 

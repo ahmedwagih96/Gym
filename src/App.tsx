@@ -6,7 +6,7 @@ import Contact from "@/scenes/contact";
 import Footer from "@/scenes/footer";
 function App() {
   return (
-    <div className="app bg-gray-20">
+    <div className="app bg-gray-20 relative">
       <Navbar />
       <Home />
       <Benefits />
