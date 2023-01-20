@@ -23,14 +23,6 @@ function Benefits() {
       className="mx-auto min-h-full w-5/6 py-20"
     >
       <motion.div
-        initial="hidden"
-        viewport={{ once: true, amount: 0.5 }}
-        whileInView="visible"
-        transition={{ duration: 0.5 }}
-        variants={{
-          hidden: { opacity: 0, x: -50 },
-          visible: { opacity: 1, x: 0 },
-        }}
         onViewportEnter={() => dispatch(setSelectedPage(SelectedPage.Benefits))}
       >
         {/* HEADER */}
