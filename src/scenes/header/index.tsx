@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 //Utils
 import Logo from "@/assets/Logo.png";
@@ -7,40 +7,27 @@ import Link from "@/scenes/header/Link";
 import ActionButton from "@/shared/ActionButton";
 //Custom Hook
 import useMediaQuery from "@/hooks/useMediaQuery";
-//TypeScript TYPE
-import { SelectedPage } from "@/shared/types";
+
 //Redux
-import { useDispatch } from "react-redux";
-import { setSelectedPage } from "@/features/selectedPageSlice";
 import MobileModal from "./MobileModal";
+import useIsTopPage from "@/hooks/useIsTopPage";
 
 function Navbar() {
-  const dispatch = useDispatch();
+  //Is Top Of Page Custom Hook
+  const isTopOfPage = useIsTopPage();
 
-  const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setIsTopOfPage(true);
-        dispatch(setSelectedPage(SelectedPage.Home));
-      }
-      if (window.scrollY !== 0) setIsTopOfPage(false);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //Active Navbar Link
+  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
   //Tailwind Shortcut
   const flexBetween = "flex items-center justify-between";
-  //Active Navbar Link
-  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-  //Media Query ;
+
+  //Media Query Custom Hook ;
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+
   //Header background style while scrolling
   const headerBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+
   return (
     <>
       <header

@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 
-
 function Form() {
   const inputStyles = `mb-5 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white outline-none`;
-  const {register,trigger,formState: { errors },} = useForm();
+  const {
+    register,
+    trigger,
+    formState: { errors },
+  } = useForm();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const isValid = await trigger();
     if (!isValid) {

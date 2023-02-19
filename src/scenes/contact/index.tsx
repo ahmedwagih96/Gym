@@ -1,20 +1,15 @@
 import HText from "@/shared/HText";
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { setSelectedPage } from "@/features/selectedPageSlice";
 import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
 import Form from "./Form";
+import useStore from "@/hooks/useStore";
 
 function Contact() {
-  const dispatch = useDispatch();
+  const { setPage } = useStore();
   return (
     <section id={SelectedPage.ContactUs} className="mx-auto w-5/6 pt-24 pb-32">
-      <motion.div
-        onViewportEnter={() =>
-          dispatch(setSelectedPage(SelectedPage.ContactUs))
-        }
-      >
+      <motion.div onViewportEnter={() => setPage(SelectedPage.ContactUs)}>
         {/* HEADING */}
         <motion.div
           initial="hidden"

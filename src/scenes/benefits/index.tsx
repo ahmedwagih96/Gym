@@ -1,6 +1,4 @@
 //Redux
-import { useDispatch } from "react-redux";
-import { setSelectedPage } from "@/features/selectedPageSlice";
 import { BenefitType, SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
 import HText from "@/shared/HText";
@@ -8,6 +6,7 @@ import Benefit from "@/scenes/benefits/Benefit";
 import ActionButton from "@/shared/ActionButton";
 import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 import { benefits } from "@/shared/benefitsData";
+import useStore from "@/hooks/useStore";
 
 const container = {
   hidden: {},
@@ -16,14 +15,14 @@ const container = {
   },
 };
 function Benefits() {
-  const dispatch = useDispatch();
+  const {setPage} = useStore()
   return (
     <section
       id={SelectedPage.Benefits}
       className="mx-auto min-h-full w-5/6 py-20"
     >
       <motion.div
-        onViewportEnter={() => dispatch(setSelectedPage(SelectedPage.Benefits))}
+        onViewportEnter={() => setPage(SelectedPage.Benefits)}
       >
         {/* HEADER */}
         <motion.div

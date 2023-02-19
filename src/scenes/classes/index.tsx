@@ -1,15 +1,14 @@
 //Redux
-import { useDispatch } from "react-redux";
-import { selectPage, setSelectedPage } from "@/features/selectedPageSlice";
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
 import HText from "@/shared/HText";
 import { ourClasses } from "@/shared/classesData";
 import Class from "./Class";
+import useStore from "@/hooks/useStore";
 type Props = {};
 
 function Classes({}: Props) {
-  const dispatch = useDispatch();
+  const { setPage } = useStore();
   return (
     <section
       id={SelectedPage.OurClasses}
@@ -17,9 +16,7 @@ function Classes({}: Props) {
     >
       <motion.div
         className="mx-auto w-5/6"
-        onViewportEnter={() =>
-          dispatch(setSelectedPage(SelectedPage.OurClasses))
-        }
+        onViewportEnter={() => setPage(SelectedPage.OurClasses)}
       >
         <motion.div
           initial="hidden"
