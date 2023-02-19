@@ -27,7 +27,7 @@ function Contact() {
           <p className="my-5"></p>
         </motion.div>
 
-        {/* FORM AND DIV */}
+        {/* FORM AND IMAGE */}
         <div className="mt-10 justify-between gap-8 md:flex">
           {/* FORM */}
           <motion.div
@@ -45,7 +45,7 @@ function Contact() {
           </motion.div>
           {/* IMAGE */}
           <motion.div
-            className="relative mt-16 basis-2/5 md:mt-0"
+            className="relative mt-16 basis-2/5 md:mt-0 hidden md:block"
             initial="hidden"
             viewport={{ once: true, amount: 0.5 }}
             whileInView="visible"
@@ -55,11 +55,10 @@ function Contact() {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolvetext">
+            <div className="before:absolute before:-bottom-20  before:z-[-1] before:bg-evolvetext before:w-[120%] before:left-[-10%] before:h-[100px] before:bg-contain before:bg-no-repeat">
               <img
                 src={ContactUsPageGraphic}
                 alt="contact-us-page-graphic"
-                className="w-full"
               />
             </div>
           </motion.div>

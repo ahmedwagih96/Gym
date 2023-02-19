@@ -19,7 +19,7 @@ function Form() {
       target="_blank"
       onSubmit={handleSubmit}
       method="POST"
-      className=""
+      className="text-center sm:text-left"
     >
       <input
         type="text"
@@ -69,7 +69,7 @@ function Form() {
       )}
       <button
         type="submit"
-        className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
+        className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white mx-auto"
       >
         Submit
       </button>
